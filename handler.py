@@ -1,6 +1,6 @@
 from watchdog.events import FileSystemEventHandler
 import os
-from file_utils import Utils
+from utils import Utils
 
 class Handler(FileSystemEventHandler):
   def on_any_event(self, event):
@@ -56,5 +56,7 @@ class Handler(FileSystemEventHandler):
     elif Utils.is_video_file(event) == True:
       path = Utils.make_folder("video")
       Utils.move_file(event, path)
+      
     elif Utils.is_compact_file(event) == True:
       path = Utils.make_folder("compact")
+      Utils.move_file(event, path)
