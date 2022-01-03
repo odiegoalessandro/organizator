@@ -1,19 +1,10 @@
+from observers.observer import Observer
 from handler import Handler
 import os
-from watchdog.observers import Observer
-import time
 
-os.chdir("C:\\Users\\diego\\Downloads")
-
-observer = Observer()
-file_change_handler = Handler()
-observer.schedule(event_handler = file_change_handler, path = os.getcwd(), recursive = False)
-observer.start()
-
-try:
-  while True:
-    time.sleep(1)
-except KeyboardInterrupt:
-  observer.stop()
-finally:
-  observer.join()
+if __name__ == "__main__":
+  os.chdir("C:\\Users\\diego\\Downloads")
+  path = os.getcwd()
+  handler = Handler()
+  observer = Observer(Handler(), os.getcwd())
+  observer.start()

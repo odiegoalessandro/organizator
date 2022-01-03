@@ -31,7 +31,7 @@ class Utils:
     return False
 
   def is_doc_file(event):
-    if extension_type(event) in ('doc', 'docx'):
+    if extension_type(event) in ('doc', 'docx', 'rtf'):
       return True
     return False
 
