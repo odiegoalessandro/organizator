@@ -2,7 +2,7 @@ from watchdog.events import FileSystemEventHandler
 import os
 from utils import Utils
 
-class Handler(FileSystemEventHandler):
+class FileOrganizerHandler(FileSystemEventHandler):
   def on_any_event(self, event):
     pass
   
@@ -18,7 +18,7 @@ class Handler(FileSystemEventHandler):
       return
     
     elif Utils.is_text_file(event) == True:
-      path = Utils.make_folder("code")
+      path = Utils.make_folder("texto")
       Utils.move_file(event, path)
 
     elif Utils.is_code_file(event) == True:

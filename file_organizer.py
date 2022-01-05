@@ -1,10 +1,8 @@
 from observers.observer import Observer
-from handler import Handler
+from file_organizer_handler import FileOrganizerHandler
 import os
 
 if __name__ == "__main__":
   os.chdir("C:\\Users\\diego\\Downloads")
-  path = os.getcwd()
-  handler = Handler()
-  observer = Observer(Handler(), os.getcwd())
+  observer = Observer(FileOrganizerHandler(), os.getcwd())
   observer.start()
